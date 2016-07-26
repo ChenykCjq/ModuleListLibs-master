@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@mipmap/pic_wangzw_one" />
+
+            <com.ImageViewAvatar.CustomImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_margin="10dp"
+                app:src="@mipmap/pic_wangzw_one"
+                app:type="circle" />
+
+            <com.ImageViewAvatar.CustomImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:borderRadius="10dp"
+                app:src="@mipmap/pic_wangzw_one"
+                app:type="round" />
+
+            <com.ImageViewAvatar.CustomImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:borderRadius="40dp"
+                app:src="@mipmap/pic_wangzw_one"
+                app:type="round" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

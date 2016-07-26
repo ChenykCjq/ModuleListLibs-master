@@ -1,0 +1,113 @@
+apply plugin: 'com.android.application'
+
+android {
+    //编译SDK的版本
+    compileSdkVersion 23
+    //编译的tools版本
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        //应用的包名
+        applicationId "com.example.chenyk.chenyknotes"
+        //支持的最低版本
+        minSdkVersion 9
+        //支持的目标版本
+        targetSdkVersion 22
+        //版本号
+        versionCode 1
+        //版本名
+        versionName "1.1"
+        // dex突破65535的限制
+        multiDexEnabled true
+    }
+
+    //执行lint检查，有任何的错误或者警告提示，都会终止构建，现将其关掉。
+    lintOptions {
+        abortOnError false
+    }
+    //签名配置
+    signingConfigs {
+        debug {
+            keyAlias 'dt'
+            keyPassword '888888'
+            storeFile file("dtkeystore.jks")
+            storePassword '888888'
+        }
+        release {
+            //key别名
+            keyAlias 'dt'
+            //key密码
+            keyPassword '888888'
+            //密钥文件路径
+            storeFile file("dtkeystore.jks")
+            //密钥文件密码
+            storePassword '888888'
+        }
+    }
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            // apk包名称后缀，用来区分release和debug
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //开启混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，指定混淆规则文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            //修改输出文件的名称
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        // 输出apk名称为dt_android360_v1.0_0705114322.apk
+//                        def fileName = "dt_${variant.productFlavors[0].name}_v${defaultConfig.versionName}_${new Date().format("MMddhhmmss")}.apk"
+//                        output.outputFile = new File(outputFile.parent, fileName)
+//                    }
+//                }
+//            }
+        }
+    }
+    //渠道Flavors，配置不同风格的app
+    productFlavors {
+        googleplay {}
+        huawei {}
+        xiaomi {}
+        wandoujia {}
+        baidu {}
+        yingyongbao {}
+        android360 {}
+        uc {}
+        umeng {}
+        meizu{}
+        //批量配置
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
+    }
+}
+dependencies {
+    // 编译libs目录下的所有jar包
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //编译友盟SDK
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    testCompile 'junit:junit:4.12'
+    compile project(':customControls')
+    compile project(':zxinglib')
+    compile project(':pulltorefreshlib')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile project(path: ':slidingmenulib')
+}

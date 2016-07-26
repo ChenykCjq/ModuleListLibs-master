@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/vp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="按医疗机构"
+        android:textColor="#969696"
+        android:textSize="17dp" />
+</LinearLayout>

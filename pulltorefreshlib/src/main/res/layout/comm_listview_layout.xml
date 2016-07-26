@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <edu.swu.pulltorefreshswipemenulistview.library.PullToRefreshSwipeMenuListView
+        android:id="@+id/comm_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:gravity="center"
+        android:scrollbars="none" />
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/comm_listview_empty_info"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:text="当前暂无任何数据" />-->
+
+</FrameLayout>

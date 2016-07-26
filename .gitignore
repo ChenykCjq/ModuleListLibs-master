@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+/.gradle/
+/app/app.iml
+/build/
+/gradle/
+/local.properties
+/ModuleListLibs-master.iml
+/zxinglib/zxinglib.iml
+/slidingmenulib/slidingmenulib.iml
+/pulltorefreshlib/pulltorefreshlib.iml
+/customControls/customControls.iml

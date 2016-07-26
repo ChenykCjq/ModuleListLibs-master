@@ -1,0 +1,23 @@
+package com.pickerview.utils;
+
+import android.view.Gravity;
+
+import com.customcontrolsmodule.R;
+
+/**
+ * Created by chenyk on 2016/6/16.
+ */
+public class PickerViewAnimateUtil {
+    private static final int INVALID = -1;
+
+    /**
+     * 时间选择控制器动画
+     */
+    public static int getAnimationResource(int gravity, boolean isInAnimation) {
+        switch (gravity) {
+            case Gravity.BOTTOM:
+                return isInAnimation ? R.anim.slide_in_bottom : R.anim.slide_out_bottom;
+        }
+        return INVALID;
+    }
+}
